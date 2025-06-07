@@ -152,6 +152,81 @@
         height: auto;
       }
     }
+  /* Neon de regras e informações */
+    .neon-title {
+    color: #fcfbfad0;
+    text-shadow: 0 0 4px #ffffff91, 0 0 8px #ffffffa4;
+    animation: pulseNeon 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseNeon {
+    0%, 100% {
+      text-shadow: 0 0 4px #fff, 0 0 8px #fff;
+    }
+    50% {
+      text-shadow: 0 0 8px #fff, 0 0 16px #fff;
+    }
+  }
+
+  /* Neon de "Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!" */
+  .neon-subtitle {
+    color: inherit;
+    text-shadow: 0 0 4px #ffffff9a, 0 0 8px #ffffffa8;
+    animation: pulseNeon 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseNeon {
+    0%, 100% {
+      text-shadow: 0 0 4px #ffffff93, 0 0 8px #fff;
+    }
+    50% {
+      text-shadow: 0 0 8px #fff, 0 0 16px #ffffff81;
+    }
+  }
+
+  /* Cores dos botões de rede social */
+
+.social-bubbles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.social-link {
+  color: white;
+  padding: 12px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estilo específico pra cada rede */
+.social-link.whatsapp {
+  background-color: #25D366;
+}
+
+.social-link.instagram {
+  background-color: #E1306C;
+}
+
+.social-link.discord {
+  background-color: #5865F2;
+}
+
+/* Efeito hover leve */
+.social-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+
+
   </style>
 </head>
 
@@ -189,32 +264,35 @@
 
 <section class="contact">
 
-  <div class="commission-info" style="margin: 30px 0;">
-    <h3 style="color: #ffcc00;">📌 Regras & Informações Importantes</h3>
-    <ul style="list-style: none; padding-left: 0; margin-top: 10px; line-height: 1.8;">
-      <li>💰 <strong>Pagamento via PIX ou PayPal</strong> (50% antecipado, 50% após entrega final)</li>
-      <li>🎨 Faço: personagens, fanarts, retratos, mascotes e ilustrações digitais</li>
-      <li>🚫 Não faço: conteúdo NSFW, gore pesado ou artes ofensivas</li>
-      <li>📆 Prazo médio de entrega: de 3 a 7 dias úteis, dependendo da complexidade</li>
-      <li>🔄 Revisões permitidas: até 2 correções leves gratuitas</li>
-      <li>📩 Envio da arte em alta resolução (.PNG ou .JPG) via e-mail ou drive</li>
-    </ul>
-  </div>
+<div class="commission-info" style="margin: 30px 0;">
+  <h2 class="neon-title">Regras & Informações Importantes</h2>
+  <ul style="list-style: none; padding-left: 0; margin-top: 10px; line-height: 1.8;">
+    <li><strong>Pagamento via PIX ou PayPal</strong> (50% antecipado, 50% após entrega final)</li>
+    <li>Faço: personagens, fanarts, retratos, mascotes e ilustrações digitais</li>
+    <li>Não faço: conteúdo NSFW, gore pesado ou artes ofensivas</li>
+    <li>Prazo médio de entrega: de 3 a 7 dias úteis, dependendo da complexidade</li>
+    <li>Revisões permitidas: até 2 correções leves gratuitas</li>
+    <li>Envio da arte em alta resolução (.PNG ou .JPG) via e-mail ou drive</li>
+  </ul>
+</div>
 
-  <h2>Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!</h2>
+
+  <h2 class="neon-subtitle">Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!</h2>
   <p>Para solicitar uma comissão ou tirar dúvidas, me chame em alguma rede social:</p>
 
-<div class="social-bubbles" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
-  <a href="https://wa.me/5511999999999" target="_blank" style="background: #25D366; color: white; padding: 12px 18px; border-radius: 20px; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center;">
-    💬 Me chama no WhatsApp!
+<div class="social-bubbles">
+  <a href="https://wa.me/5511999999999" target="_blank" class="social-link whatsapp">
+    <i class="fab fa-whatsapp"></i> Me chama no WhatsApp!
   </a>
-  <a href="https://instagram.com/seuuser" target="_blank" style="background: #E1306C; color: white; padding: 12px 18px; border-radius: 20px; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center;">
-    📸 Me chama no Instagram!
+  <a href="https://instagram.com/seuuser" target="_blank" class="social-link instagram">
+    <i class="fab fa-instagram"></i> Me chama no Instagram!
   </a>
-  <a href="https://discord.com/users/seu_id" target="_blank" style="background: #5865F2; color: white; padding: 12px 18px; border-radius: 20px; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center;">
-    🎧 Tô no Discord também!
+  <a href="https://discord.com/users/seu_id" target="_blank" class="social-link discord">
+    <i class="fab fa-discord"></i> Tô no Discord também!
   </a>
 </div>
+
+
 
 
 </section>
