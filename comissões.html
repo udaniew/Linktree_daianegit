@@ -58,9 +58,9 @@
 
     .art-card img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto;
       cursor: pointer;
+      display: block;
     }
 
     .art-card .content {
@@ -113,10 +113,13 @@
       max-width: 90%;
       max-height: 80vh;
       transition: transform 0.2s;
+      transform-origin: center;
+      z-index: 1;
     }
 
     .modal .controls {
       margin-top: 10px;
+      z-index: 2;
     }
 
     .modal .controls button {
@@ -127,6 +130,7 @@
       font-size: 1.2rem;
       border-radius: 5px;
       cursor: pointer;
+      z-index: 2;
     }
 
     .modal .close-btn {
@@ -136,6 +140,7 @@
       font-size: 2rem;
       color: white;
       cursor: pointer;
+      z-index: 2;
     }
 
     @media (max-width: 600px) {
@@ -144,7 +149,7 @@
       }
 
       .art-card img {
-        height: 150px;
+        height: auto;
       }
     }
   </style>
@@ -158,39 +163,63 @@
 
   <section class="portfolio">
     <div class="art-card">
-      <img src="../Linktree_daianegit/imagens/arts/folha_na_cabeça.jpeg" alt="Arte 1" onclick="openModal(this.src)">
+      <img src="../Linktree_daianegit/imagens/arts/folha_na_cabeça.jpeg" alt="Arte 1" onclick="openModal(this)">
       <div class="content">
-        <h3>Retrato Estilizado</h3>
-        <p>Desenho digital com traço expressivo e cores vivas. Ideal para presentes ou perfis.</p>
+        <h3>Personagem original</h3>
+        <p>Personagens de criação única autoral. Ideal para presentes personalizados ou uso exclusivo em perfis, agregando originalidade e identidade própria.</p>
       </div>
     </div>
 
     <div class="art-card">
-      <img src="https://via.placeholder.com/400x300" alt="Arte 2" onclick="openModal(this.src)">
+      <img src="../Linktree_daianegit/imagens/arts/mulher_de_touca.jpeg" alt="Arte 2" onclick="openModal(this)">
       <div class="content">
-        <h3>Cenário de Fantasia</h3>
-        <p>Ambientes imaginários com detalhes minuciosos, ideal para projetos ou livros.</p>
+        <h3>Fan'arts</h3>
+        <p>Fanarts de personagens icônicos, reinterpretados com um estilo único.</p>
       </div>
     </div>
 
     <div class="art-card">
-      <img src="https://via.placeholder.com/400x300" alt="Arte 3" onclick="openModal(this.src)">
+      <img src="../Linktree_daianegit/imagens/arts/medieval.jpeg" alt="Arte 3" onclick="openModal(this)">
       <div class="content">
-        <h3>Personagem Original</h3>
-        <p>Criação de personagem exclusivo com base em descrições ou referências.</p>
+        <h3>Semi-realismo</h3>
+        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
       </div>
     </div>
   </section>
 
-  <section class="contact">
-    <h2>Entre em Contato</h2>
-    <p>Para solicitar uma comissão ou tirar dúvidas, me encontre nas redes sociais:</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-pinterest"></i></a>
-    </div>
-  </section>
+<section class="contact">
+
+  <div class="commission-info" style="margin: 30px 0;">
+    <h3 style="color: #ffcc00;">📌 Regras & Informações Importantes</h3>
+    <ul style="list-style: none; padding-left: 0; margin-top: 10px; line-height: 1.8;">
+      <li>💰 <strong>Pagamento via PIX ou PayPal</strong> (50% antecipado, 50% após entrega final)</li>
+      <li>🎨 Faço: personagens, fanarts, retratos, mascotes e ilustrações digitais</li>
+      <li>🚫 Não faço: conteúdo NSFW, gore pesado ou artes ofensivas</li>
+      <li>📆 Prazo médio de entrega: de 3 a 7 dias úteis, dependendo da complexidade</li>
+      <li>🔄 Revisões permitidas: até 2 correções leves gratuitas</li>
+      <li>📩 Envio da arte em alta resolução (.PNG ou .JPG) via e-mail ou drive</li>
+    </ul>
+  </div>
+
+  <h2>Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!</h2>
+  <p>Para solicitar uma comissão ou tirar dúvidas, me chame em alguma rede social:</p>
+
+<div class="social-bubbles" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+  <a href="https://wa.me/5511999999999" target="_blank" style="background: #25D366; color: white; padding: 12px 18px; border-radius: 20px; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center;">
+    💬 Me chama no WhatsApp!
+  </a>
+  <a href="https://instagram.com/seuuser" target="_blank" style="background: #E1306C; color: white; padding: 12px 18px; border-radius: 20px; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center;">
+    📸 Me chama no Instagram!
+  </a>
+  <a href="https://discord.com/users/seu_id" target="_blank" style="background: #5865F2; color: white; padding: 12px 18px; border-radius: 20px; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center;">
+    🎧 Tô no Discord também!
+  </a>
+</div>
+
+
+</section>
+
+
 
   <div class="modal" id="imageModal">
     <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -204,11 +233,11 @@
   <script>
     let scale = 1;
 
-    function openModal(src) {
+    function openModal(imgElement) {
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImg');
       modal.style.display = 'flex';
-      modalImg.src = src;
+      modalImg.src = imgElement.src;
       scale = 1;
       modalImg.style.transform = `scale(${scale})`;
     }
