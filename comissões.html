@@ -186,46 +186,87 @@
 
   /* Cores dos botões de rede social */
 
+/* Centraliza o conteúdo do container principal */
+.container-comissoes {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Estilização dos botões sociais */
 .social-bubbles {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 15px;
-}
-
-.social-link {
-  color: white;
-  padding: 12px 18px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  display: flex;
   align-items: center;
-  gap: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 30px;
 }
 
-/* Estilo específico pra cada rede */
-.social-link.whatsapp {
-  background-color: #25D366;
+/* Botões com visual profissional e borda animada */
+.social-link {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1.1em;
+  font-weight: 500;
+  background-color: #ffffff;
+  color: #f1f1f1;
+  border: 3px solid transparent;
+  border-radius: 50px;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.social-link.instagram {
-  background-color: #E1306C;
-}
-
-.social-link.discord {
-  background-color: #5865F2;
-}
-
-/* Efeito hover leve */
 .social-link:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-color: #1e1e1e;
+  color: #eb9413;
 }
 
+.social-link::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #007ACC, #00C896, #8A2BE2, #007ACC);
+  z-index: -1;
+  border-radius: 50px;
+  background-size: 300% 300%;
+  animation: borderRotateElegante 5s linear infinite;
+}
 
+@keyframes borderRotateElegante {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* alinhamento de regras e informações importantes*/
+.commission-info {
+  margin: 30px auto;      /* centraliza horizontalmente */
+  max-width: 800px;       /* largura máxima para não estourar */
+  text-align: left;       /* texto alinhado à esquerda */
+}
+
+.commission-info h2 {
+  margin-bottom: 20px;    /* espaço entre o título e as regras */
+}
+
+.commission-info ul {
+  list-style: none;       /* tira bolinhas */
+  padding-left: 0;
+  margin-top: 10px;
+  line-height: 1.8;
+}
 
   </style>
 </head>
@@ -246,7 +287,7 @@
     </div>
 
     <div class="art-card">
-      <img src="./imagens/mulher_de_touca.jpeg" alt="Arte 2" onclick="openModal(this)">
+      <img src="./imagens/ane.jpeg" alt="Arte 2" onclick="openModal(this)">
       <div class="content">
         <h3>Fan'arts</h3>
         <p>Fanarts de personagens icônicos, reinterpretados com um estilo único.</p>
@@ -254,7 +295,7 @@
     </div>
 
     <div class="art-card">
-      <img src="./imagens/medieval.jpeg" alt="Arte 3" onclick="openModal(this)">
+      <img src="./imagens/vampiro.jpeg" alt="Arte 3" onclick="openModal(this)">
       <div class="content">
         <h3>Semi-realismo</h3>
         <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
@@ -264,33 +305,44 @@
 
 <section class="contact">
 
-<div class="commission-info" style="margin: 30px 0;">
+<div class="commission-info">
   <h2 class="neon-title">Regras & Informações Importantes</h2>
-  <ul style="list-style: none; padding-left: 0; margin-top: 10px; line-height: 1.8;">
-    <li><strong>Pagamento via PIX ou PayPal</strong> (50% antecipado, 50% após entrega final)</li>
-    <li>Faço: personagens, fanarts, retratos, mascotes e ilustrações digitais</li>
-    <li>Não faço: conteúdo NSFW, gore pesado ou artes ofensivas</li>
-    <li>Prazo médio de entrega: de 3 a 7 dias úteis, dependendo da complexidade</li>
-    <li>Revisões permitidas: até 2 correções leves gratuitas</li>
-    <li>Envio da arte em alta resolução (.PNG ou .JPG) via e-mail ou drive</li>
+  <ul>
+    <li><strong>Pagamento:</strong> 50% antecipado via Pix para início do projeto. Após o pagamento, envio um esboço detalhado para aprovação ou ajustes. Com o esboço aprovado, o restante do valor deve ser quitado para que a arte seja finalizada.</li>
+    <li><strong>Formas de pagamento:</strong> Exclusivamente via <strong>Pix</strong>.</li>
+    <li><strong>Faço:</strong> Personagens originais (OC's), fan'arts, semi-realismo, cenários simples, gore, animais, armaduras e fichas de personagem (ref. sheet).</li>
+    <li><strong>Não faço:</strong> Arte furry, mechas, cenários complexos, conteúdo NSFW ou ofensivo.</li>
+    <li><strong>Prazo de entrega:</strong> Entre <strong>1 a 2 semanas</strong>, dependendo da complexidade e da fila de pedidos.</li>
+    <li><strong>Revisões:</strong> Incluem até <strong>2 correções leves gratuitas</strong> durante o processo. Após a finalização, não serão aceitas revisões.</li>
+    <li><strong>Entrega final:</strong> Arquivo em <strong>alta resolução</strong> (formato PNG), com e sem fundo. Inclui, se solicitado, o rascunho, lineart e processo completo. O envio pode ser feito por <strong>e-mail ou Google Drive</strong>, conforme a preferência.</li>
+    <li><strong>Uso das artes:</strong> As artes finalizadas podem ser usadas para divulgação do meu portfólio, sempre com <strong>marca d’água</strong>. Se for um presente ou homenagem e você quiser <strong>não divulgar publicamente</strong>, é só avisar!</li>
+    <li><strong>Referências:</strong> Para melhores resultados, envie <strong>o máximo de informações possível</strong> sobre o pedido. Quanto mais imagens e descrições, mais fiel e personalizada será sua arte.</li>
   </ul>
 </div>
 
 
+
+  </ul>
+</div>
+
+
+<div class="container-comissoes">
   <h2 class="neon-subtitle">Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!</h2>
   <p>Para solicitar uma comissão ou tirar dúvidas, me chame em alguma rede social:</p>
 
-<div class="social-bubbles">
-  <a href="https://wa.me/5511999999999" target="_blank" class="social-link whatsapp">
-    <i class="fab fa-whatsapp"></i> Me chama no WhatsApp!
-  </a>
-  <a href="https://instagram.com/seuuser" target="_blank" class="social-link instagram">
-    <i class="fab fa-instagram"></i> Me chama no Instagram!
-  </a>
-  <a href="https://discord.com/users/seu_id" target="_blank" class="social-link discord">
-    <i class="fab fa-discord"></i> Tô no Discord também!
-  </a>
+  <div class="social-bubbles">
+    <a href="https://wa.me/5586999735909" target="_blank" class="social-link whatsapp">
+      <i class="fab fa-whatsapp"></i> Meu WhatsApp
+    </a>
+    <a href="https://instagram.com/dayanee_art" target="_blank" class="social-link instagram">
+      <i class="fab fa-instagram"></i> Meu Instagram
+    </a>
+    <a href="https://discord.com/users/863921132586270720" target="_blank" class="social-link discord">
+      <i class="fab fa-discord"></i> Meu Discord
+    </a>
+  </div>
 </div>
+
 
 
 
