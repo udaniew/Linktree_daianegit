@@ -36,22 +36,20 @@
       color: #ccc;
     }
 
-/* Já existe */
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
-}
+    /* Já existe */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
 
-/* Adiciona isso ao final do seu CSS */
-@media (max-width: 768px) {
-  .portfolio {
-    grid-template-columns: 1fr;
-  }
-}
-
-
+    /* Adiciona isso ao final do seu CSS */
+    @media (max-width: 768px) {
+      .portfolio {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .art-card {
       background-color: #ffffff10;
@@ -196,98 +194,98 @@
 
   /* Cores dos botões de rede social */
 
-/* Centraliza o conteúdo do container principal */
-.container-comissoes {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-/* Estilização dos botões sociais */
-.social-bubbles {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  margin-top: 30px;
-}
-
-/* Botões com visual profissional e borda animada */
-.social-link {
-  position: relative;
-  display: inline-block;
-  padding: 12px 28px;
-  font-size: 1.1em;
-  font-weight: 500;
-  background-color: #ffffff;
-  color: #f1f1f1;
-  border: 3px solid transparent;
-  border-radius: 50px;
-  text-decoration: none;
-  overflow: hidden;
-  z-index: 1;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.social-link:hover {
-  background-color: #1e1e1e;
-  color: #eb9413;
-}
-
-.social-link::before {
-  content: "";
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: linear-gradient(45deg, #007ACC, #00C896, #8A2BE2, #007ACC);
-  z-index: -1;
-  border-radius: 50px;
-  background-size: 300% 300%;
-  animation: borderRotateElegante 5s linear infinite;
-}
-
-@keyframes borderRotateElegante {
-  0% {
-    background-position: 0% 50%;
+  /* Centraliza o conteúdo do container principal */
+  .container-comissoes {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
   }
-  50% {
-    background-position: 100% 50%;
+
+  /* Estilização dos botões sociais */
+  .social-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
   }
-  100% {
-    background-position: 0% 50%;
+
+  /* Botões com visual profissional e borda animada */
+  .social-link {
+    position: relative;
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1.1em;
+    font-weight: 500;
+    background-color: #ffffff;
+    color: #f1f1f1;
+    border: 3px solid transparent;
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-}
-/* alinhamento de regras e informações importantes*/
-.commission-info {
-  margin: 30px auto;      /* centraliza horizontalmente */
-  max-width: 800px;       /* largura máxima para não estourar */
-  text-align: left;       /* texto alinhado à esquerda */
-}
 
-.commission-info h2 {
-  margin-bottom: 20px;    /* espaço entre o título e as regras */
-}
+  .social-link:hover {
+    background-color: #1e1e1e;
+    color: #eb9413;
+  }
 
-.commission-info ul {
-  list-style: none;       /* tira bolinhas */
-  padding-left: 0;
-  margin-top: 10px;
-  line-height: 1.8;
-}
+  .social-link::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #007ACC, #00C896, #8A2BE2, #007ACC);
+    z-index: -1;
+    border-radius: 50px;
+    background-size: 300% 300%;
+    animation: borderRotateElegante 5s linear infinite;
+  }
 
-#imageModal {
-  cursor: grab;
-  overflow: hidden;
-}
+  @keyframes borderRotateElegante {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  /* alinhamento de regras e informações importantes*/
+  .commission-info {
+    margin: 30px auto;      /* centraliza horizontalmente */
+    max-width: 800px;       /* largura máxima para não estourar */
+    text-align: left;       /* texto alinhado à esquerda */
+  }
 
-#modalImg {
-  cursor: default;
-  transition: transform 0.2s ease;
-  user-select: none;
-}
+  .commission-info h2 {
+    margin-bottom: 20px;    /* espaço entre o título e as regras */
+  }
+
+  .commission-info ul {
+    list-style: none;       /* tira bolinhas */
+    padding-left: 0;
+    margin-top: 10px;
+    line-height: 1.8;
+  }
+
+  #imageModal {
+    cursor: grab;
+    overflow: hidden;
+  }
+
+  #modalImg {
+    cursor: default;
+    transition: transform 0.2s ease;
+    user-select: none;
+  }
 
 
 
@@ -317,7 +315,7 @@
     <div class="art-card">
       <img src="./imagens/ane.jpeg" alt="Arte 2" onclick="openModal(this)">
       <div class="content">
-        <h3>Fan'arts</h3>
+        <h3>Fan'arts - Shingeki no Kyojin</h3>
         <p>Fanarts de personagens icônicos, reinterpretados com um estilo único.</p>
       </div>
     </div>
@@ -325,31 +323,39 @@
     <div class="art-card">
       <img src="./imagens/vampiro.jpeg" alt="Arte 3" onclick="openModal(this)">
       <div class="content">
-        <h3>Semi-realismo</h3>
+        <h3>Semi-realismo - Vampiro</h3>
         <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
       </div>
     </div>    
     
     <div class="art-card">
-      <img src="./imagens/chibi.jpeg" alt="Arte 4" onclick="openModal(this)">
+      <img src="./imagens/mulher_de_touca.jpeg" alt="Arte 16" onclick="openModal(this)">
       <div class="content">
-        <h3>Chibi's</h3>
-        <p>Estilo de desenho cartunizado e simplificado, ideal para um presente memorável ao seu par romântico.</p>
+        <h3>Semi-realismo</h3>
+        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
       </div>
-    </div>    
+    </div>  
 
-    <div class="art-card">
-      <img src="./imagens/anime.jpeg" alt="Arte 5" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
+  <div class="art-card">
+    <img src="./imagens/pirata.jpeg" alt="Arte 5" onclick="openModal(this)">
+    <div class="content">
+      <h3>Fan'arts - Projeto Infinity World</h3>
+
+      <!-- Ícone de informação com link -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
+        <a href="https://novelmania.com.br/novels/infinity-world" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
       </div>
-    </div>    
+
+      <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
+    </div>
+  </div>
+
 
     <div class="art-card">
       <img src="./imagens/caricatura.jpeg" alt="Arte 6" onclick="openModal(this)">
       <div class="content">
-        <h3>Caricatura</h3>
+        <h3>Caricatura - Beto Rego</h3>
         <p>Desenhos de caricatura: ideais para capturar a essência de pessoas com um toque de humor e originalidade.</p>
       </div>
     </div>    
@@ -357,7 +363,7 @@
     <div class="art-card">
       <img src="./imagens/ratao.jpeg" alt="Arte 7" onclick="openModal(this)">
       <div class="content">
-        <h3>Semi-realismo</h3>
+        <h3>Semi-realismo - Luiz Espalha Lixo, WoodPecker</h3>
         <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
       </div>
     </div>    
@@ -366,7 +372,7 @@
     <div class="art-card">
       <img src="./imagens/flor_do_deserto.jpeg" alt="Arte 8" onclick="openModal(this)">
       <div class="content">
-        <h3>Semi-realismo</h3>
+        <h3>Semi-realismo - "A flor do deserto", WoodPecker</h3>
         <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
       </div>
     </div>  
@@ -374,23 +380,30 @@
     <div class="art-card">
       <img src="./imagens/dardos.jpeg" alt="Arte 9" onclick="openModal(this)">
       <div class="content">
-        <h3>Anime</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
+        <h3>Personagem original</h3>
+        <p>Personagens de criação única autoral. Ideal para presentes personalizados ou uso exclusivo em perfis, agregando originalidade e identidade própria.</p>
       </div>
     </div>    
 
-    <div class="art-card">
-      <img src="./imagens/lorita.jpeg" alt="Arte 10" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
+  <div class="art-card">
+    <img src="./imagens/lorita.jpeg" alt="Arte 5" onclick="openModal(this)">
+    <div class="content">
+      <h3>Anime - Evento de Aniversário</h3>
+
+      <!-- Ícone de informação com link -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
+        <a href="https://discord.com/channels/297732013006389252/583406099047252044/1360785067638784213" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
       </div>
-    </div>   
+
+      <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
+    </div>
+  </div> 
 
     <div class="art-card">
       <img src="./imagens/miku_br.jpeg" alt="Arte 11" onclick="openModal(this)">
       <div class="content">
-        <h3>Anime</h3>
+        <h3>Anime - Miku BR Trend</h3>
         <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
       </div>
     </div>   
@@ -398,13 +411,43 @@
     <div class="art-card">
       <img src="./imagens/outono.jpeg" alt="Arte 12" onclick="openModal(this)">
       <div class="content">
-        <h3>Anime</h3>
+        <h3>Anime - Oc</h3>
         <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
       </div>
     </div>   
 
+    <div class="art-card">
+      <img src="./imagens/flower.jpeg" alt="Arte 13" onclick="openModal(this)">
+      <div class="content">
+        <h3>Semi-realismo</h3>
+        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
+      </div>
+    </div>  
+
+    <div class="art-card">
+      <img src="./imagens/monstrinha.jpeg" alt="Arte 14" onclick="openModal(this)">
+      <div class="content">
+        <h3>Anime - Oc</h3>
+        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
+      </div>
+    </div>   
+
+    <div class="art-card">
+      <img src="./imagens/hange.jpeg" alt="Arte 15" onclick="openModal(this)">
+      <div class="content">
+        <h3>Fan'arts - Shingeki no Kyojin</h3>
+        <p>Fanarts de personagens icônicos, reinterpretados com um estilo único.</p>
+      </div>
+    </div>
 
 
+    <div class="art-card">
+      <img src="./imagens/chibi.jpeg" alt="Arte 4" onclick="openModal(this)">
+      <div class="content">
+        <h3>Chibi's</h3>
+        <p>Estilo de desenho cartunizado e simplificado, ideal para um presente memorável ao seu par romântico.</p>
+      </div>
+    </div>    
 
 
   </section>
