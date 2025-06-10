@@ -6,7 +6,7 @@
   }
   
   body {
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    background: linear-gradient(135deg, #1f1c2c, #d41111);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -90,4 +90,12 @@
       font-size: 20px;
     }
   }
-  
+
+  .credit {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: sans-serif;
+  }
