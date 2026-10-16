@@ -1,694 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comissões de Arte</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #151738, #751b75);
-      color: #fff;
-      line-height: 1.6;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    /* Já existe */
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    /* Adiciona isso ao final do seu CSS */
-    @media (max-width: 768px) {
-      .portfolio {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .art-card {
-      background-color: #ffffff10;
-      border-radius: 15px;
-      overflow: hidden;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .art-card:hover {
-      transform: scale(1.03);
-    }
-
-    .art-card img {
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      display: block;
-    }
-
-    .art-card .content {
-      padding: 15px;
-    }
-
-    .art-card .content h3 {
-      margin-bottom: 10px;
-    }
-
-    .art-card .content p {
-      color: #ddd;
-      font-size: 0.95rem;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact h2 {
-      margin-bottom: 10px;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: #ffcc00;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 80vh;
-      transition: transform 0.2s;
-      transform-origin: center;
-      z-index: 1;
-    }
-
-    .modal .controls {
-      margin-top: 10px;
-      z-index: 2;
-    }
-
-    .modal .controls button {
-      background: #fff;
-      border: none;
-      padding: 10px 15px;
-      margin: 0 5px;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    .modal .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      .art-card img {
-        height: auto;
-      }
-    }
-    /* Neon de regras e informações */
-    .neon-title {
-    color: #fcfbfad0;
-    text-shadow: 0 0 4px #ffffff91, 0 0 8px #ffffffa4;
-    animation: pulseNeon 2s ease-in-out infinite;
-  }
-
-  @keyframes pulseNeon {
-    0%, 100% {
-      text-shadow: 0 0 4px #fff, 0 0 8px #fff;
-    }
-    50% {
-      text-shadow: 0 0 8px #fff, 0 0 16px #fff;
-    }
-  }
-
-  /* Neon de "Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!" */
-  .neon-subtitle {
-    color: inherit;
-    text-shadow: 0 0 4px #ffffff9a, 0 0 8px #ffffffa8;
-    animation: pulseNeon 2s ease-in-out infinite;
-  }
-
-  @keyframes pulseNeon {
-    0%, 100% {
-      text-shadow: 0 0 4px #ffffff93, 0 0 8px #fff;
-    }
-    50% {
-      text-shadow: 0 0 8px #fff, 0 0 16px #ffffff81;
-    }
-  }
-
-  /* Cores dos botões de rede social */
-
-  /* Centraliza o conteúdo do container principal */
-  .container-comissoes {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  /* Estilização dos botões sociais */
-  .social-bubbles {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    margin-top: 30px;
-  }
-
-  /* Botões com visual profissional e borda animada */
-  .social-link {
-    position: relative;
-    display: inline-block;
-    padding: 12px 28px;
-    font-size: 1.1em;
-    font-weight: 500;
-    background-color: #ffffff;
-    color: #f1f1f1;
-    border: 3px solid transparent;
-    border-radius: 50px;
-    text-decoration: none;
-    overflow: hidden;
-    z-index: 1;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  .social-link:hover {
-    background-color: #1e1e1e;
-    color: #eb9413;
-  }
-
-  .social-link::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg, #007ACC, #00C896, #8A2BE2, #007ACC);
-    z-index: -1;
-    border-radius: 50px;
-    background-size: 300% 300%;
-    animation: borderRotateElegante 5s linear infinite;
-  }
-
-  @keyframes borderRotateElegante {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  /* alinhamento de regras e informações importantes*/
-  .commission-info {
-    margin: 30px auto;      /* centraliza horizontalmente */
-    max-width: 800px;       /* largura máxima para não estourar */
-    text-align: left;       /* texto alinhado à esquerda */
-  }
-
-  .commission-info h2 {
-    margin-bottom: 20px;    /* espaço entre o título e as regras */
-  }
-
-  .commission-info ul {
-    list-style: none;       /* tira bolinhas */
-    padding-left: 0;
-    margin-top: 10px;
-    line-height: 1.8;
-  }
-
-  #imageModal {
-    cursor: grab;
-    overflow: hidden;
-  }
-
-  #modalImg {
-    cursor: default;
-    transition: transform 0.2s ease;
-    user-select: none;
-  }
-
-  .credit {
-    text-align: center;
-    padding: 16px;
-    color: #aaa;
-    font-size: 14px;
-    margin-top: 40px;
-  }
-
-
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dayanee Art | Comissões de Arte Anime, Semi Realista e Chibi</title>
+<meta name="description" content="Ilustrações anime sob encomenda: busto, meio corpo e corpo inteiro. Comissões abertas, entrega rápida e pagamento via PIX. Peça sua arte agora.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dayanee Art | Comissões de Arte Anime">
+<meta property="og:description" content="Transformo suas ideias em artes no estilo anime. Comissões abertas, entrega rápida.">
+<meta property="og:image" content="imagens/daiane_pfp.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style2.css">
 </head>
-
 <body>
-  <header>
-    <h1>Portfólio de Comissões</h1>
-    <p>Desenhos digitais personalizados | Aberto para comissões!</p>
-    <br>
-    <br>
-    <br>
-    <h2>Apresentação de artes e estilos autorais</h2>
-  </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="bust" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></symbol>
+<symbol id="half" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M6 21v-7a6 6 0 0 1 12 0v7M9 21v-4m6 4v-4"/></symbol>
+<symbol id="full" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.5"/><path d="M8 21l1.5-8M16 21l-1.5-8M7 9l5-1.5L17 9M12 7.5V13"/></symbol>
+<symbol id="map" viewBox="0 0 24 24"><path d="M3 18l5-9 4 6 3-4 6 7z"/><circle cx="17" cy="6" r="2"/></symbol>
+<symbol id="paw" viewBox="0 0 24 24"><circle cx="6" cy="10" r="2"/><circle cx="10" cy="5.5" r="2"/><circle cx="15" cy="6" r="2"/><circle cx="19" cy="11" r="2"/><path d="M8 19c0-4 2-6 4-6s5 2 5 5c0 2-2 2-4 1.5S8 21 8 19z"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.5-5.5 6-5.5M18 9v8M14 13h8"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-12 7l-5 1.5L5 16a8 8 0 1 1 16-4z"/></symbol>
+<symbol id="pen" viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z"/><path d="M14 6l4 4"/></symbol>
+<symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4"/><path d="M5 12v9h14v-9M12 8v13M12 8c-3 0-5-1-5-3s3-2 5-3s3-2 5 3c2-5 5-5 5-3s-2 3-5 3z"/></symbol>
+</defs></svg>
 
-  <!-- Regras & Informações Importantes movida para o topo -->
-  <section class="contact">
-    <div class="commission-info">
-      <h2 class="neon-title">Regras & Informações Importantes</h2>
-      <ul>
-        <li><strong>Pagamento:</strong> 50% antecipado via Pix para início do projeto. Após o pagamento, envio um esboço detalhado para aprovação ou ajustes. Com o esboço aprovado, o restante do valor deve ser quitado para que a arte seja finalizada.</li>
-        <li><strong>Formas de pagamento:</strong> Exclusivamente via <strong>Pix</strong>.</li>
-        <li><strong>Faço:</strong> Personagens originais (OC's), fan'arts, semi-realismo, cenários simples, NSFW leve, Furry somente para ícone de Bot do Discord, gore, animais, armaduras e fichas de personagem (ref. sheet).</li>
-        <li><strong>Não faço:</strong> Arte furry <strong>(A MENOS QUE SEJA ÍCONE PARA BOT DO DISCORD)</strong>, mechas, cenários complexos, conteúdo NSFW pesado ou ofensivo.</li>
-        <li><strong>Prazo de entrega:</strong> Entre <strong>1 a 2 semanas</strong>, dependendo da complexidade e da fila de pedidos.</li>
-        <li><strong>Revisões:</strong> Incluem até <strong>2 correções leves gratuitas</strong> durante o processo. Após a finalização, não serão aceitas revisões.</li>
-        <li><strong>Entrega final:</strong> Arquivo em <strong>alta resolução</strong> (formato PNG), com e sem fundo. Inclui, se solicitado, o rascunho, lineart e processo completo. O envio pode ser feito por <strong>e-mail ou Google Drive</strong>, conforme a preferência.</li>
-        <li><strong>Uso das artes:</strong> As artes finalizadas podem ser usadas para divulgação do meu portfólio, sempre com <strong>marca d’água</strong>. Se for um presente ou homenagem e você quiser <strong>não divulgar publicamente</strong>, por favor, notifique-me para que a divulgação seja restrita.</li>
-        <li><strong>Referências:</strong> Para melhores resultados, envie <strong>o máximo de informações possível</strong> sobre o pedido. Quanto mais imagens e descrições, mais fiel e personalizada será sua arte.</li>
-      </ul>
-    </div>
-  </section>
+<div id="ld"><div></div></div>
 
-  <section class="portfolio">
+<header><div class="wrap glass">
+<a href="#top" class="logo grad" data-artist>Dayanee Art</a>
+<nav><a href="#galeria">Portfólio</a><a href="#precos">Preços</a><a href="#processo">Como funciona</a><a href="#contato" class="btn pri">Encomendar</a></nav><button class="bg" id="bg" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</div></header>
 
-    <div class="art-card">
-      <img src="./imagens/a_queda.jpg" alt="Arte 1" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Oc</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/paciente667.jpg" alt="Arte 2" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Oc </h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/paciente66.png" alt="Arte 3" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Oc</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/vampiro.png" alt="Arte 4" onclick="openModal(this)">
-      <div class="content">
-        <h3>Semi-realismo - Vampiro</h3>
-        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/mulher_de_touca.jpeg" alt="Arte 5" onclick="openModal(this)">
-      <div class="content">
-        <h3>Semi-realismo</h3>
-        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
-      </div>
-    </div>
-
-  <div class="art-card">
-    <img src="./imagens/pirata.jpeg" alt="Arte 6" onclick="openModal(this)">
-    <div class="content">
-      <h3>Fan'arts - Projeto Infinity World</h3>
-
-      <!-- Ícone de informação com link -->
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-        <a href="https://novelmania.com.br/novels/infinity-world" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-      </div>
-
-      <p>Fanarts de personagens icônicos, reinterpretados com um estilo único.</p>
-    </div>
-  </div>
-
-
-
-    <div class="art-card">
-      <img src="./imagens/caricatura.jpeg" alt="Arte 7" onclick="openModal(this)">
-      <div class="content">
-        <h3>Caricatura - Beto Rego</h3>
-        <p>Desenhos de caricatura: ideais para capturar a essência de pessoas com um toque de humor e originalidade.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/ratao.jpeg" alt="Arte 8" onclick="openModal(this)">
-      <div class="content">
-        <h3>Semi-realismo - Luiz Espalha Lixo, WoodPecker</h3>
-        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
-      </div>
-    </div>
-
-
-
-    <div class="art-card">
-      <img src="./imagens/flor_do_deserto.jpeg" alt="Arte 9" onclick="openModal(this)">
-      <div class="content">
-        <h3>Semi-realismo - "A flor do deserto", WoodPecker</h3>
-        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/lorita_rainha_caipira.jpg" alt="Arte 10" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Evento de São João, Loritta (Em 2º Lugar)</h3>
-
-        <!-- Ícone de informação com link, -->
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-          <a href="https://discord.com/channels/297732013006389252/1385051102113697945/1392901049291112641" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-        </div>
-
-        <p>Personagens de criação única autoral. Ideal para presentes personalizados ou uso exclusivo em perfis, agregando originalidade e identidade própria.</p>
-      </div>
-    </div>
-
-  <div class="art-card">
-    <img src="./imagens/lorita.jpeg" alt="Arte 11" onclick="openModal(this)">
-    <div class="content">
-      <h3>Anime - Evento de Aniversário, Loritta (Em 1º Lugar)</h3>
-
-      <!-- Ícone de informação com link, -->
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-        <a href="https://discord.com/channels/297732013006389252/583406099047252044/1360785067638784213" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-      </div>
-
-      <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-    </div>
-  </div>
-
-    <div class="art-card">
-      <img src="./imagens/miku_br.jpeg" alt="Arte 12" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Miku BR Trend</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/outono.jpeg" alt="Arte 13" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Oc</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/flower.jpeg" alt="Arte 14" onclick="openModal(this)">
-      <div class="content">
-        <h3>Semi-realismo</h3>
-        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/fada.jpg" alt="Arte X" onclick="openModal(this)">
-      <div class="content">
-        <h3>Semi-realismo</h3>
-        <p>Artes em semi-realismo, capturando a essência com detalhes realistas e toque artístico.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/monstrinha.jpeg" alt="Arte 15" onclick="openModal(this)">
-      <div class="content">
-        <h3>Anime - Oc</h3>
-        <p>Desenhos em estilo anime, perfeitos para a criação de personagens cativantes ou para ilustrar suas narrativas visuais.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/hange.jpeg" alt="Arte 16" onclick="openModal(this)">
-      <div class="content">
-        <h3>Fan'arts - Shingeki no Kyojin</h3>
-        <p>Fanarts de personagens icônicos, reinterpretados com um estilo único.</p>
-      </div>
-    </div>
-
-
-
-    <div class="art-card">
-      <img src="./imagens/chibi.jpeg" alt="Arte 17" onclick="openModal(this)">
-      <div class="content">
-        <h3>Chibi's</h3>
-        <p>Estilo de desenho cartunizado e simplificado, ideal para um presente memorável ao seu par romântico.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/sonhos_do_mar.jpg" alt="Arte y" onclick="openModal(this)">
-      <div class="content">
-        <h3>Chibi's</h3>
-        <p>Estilo de desenho cartunizado e simplificado, ideal para um presente memorável ao seu par romântico.</p>
-      </div>
-    </div>
-
-    <div class="art-card">
-      <img src="./imagens/bot_lobao_panico.jpg" alt="Arte a" onclick="openModal(this)">
-      <div class="content">
-        <h3>Arte para ícone do Discord - Bot Lobão</h3>
-
-        <!-- Ícone de informação com link -->
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-          <a href="https://discord.gg/clube-meia-noite-1186063021051748352" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-        </div>
-
-        <p>Estilo de desenho furry leve e simplificado, perfeito para criar ícones únicos e carismáticos APENAS para BOTS no Discord.</p>
-      </div>
-    </div>
-
-
-    <div class="art-card">
-      <img src="./imagens/bot_lobao_it.jpg" alt="Arte b" onclick="openModal(this)">
-      <div class="content">
-        <h3>Arte para ícone do Discord - Bot Lobão</h3>
-
-        <!-- Ícone de informação com link -->
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-          <a href="https://discord.gg/clube-meia-noite-1186063021051748352" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-        </div>
-
-        <p>Estilo de desenho furry leve e simplificado, perfeito para criar ícones únicos e carismáticos APENAS para BOTS no Discord.</p>
-      </div>
-    </div>
-
-
-    <div class="art-card">
-      <img src="./imagens/bot_lobao_leprechaun.jpg" alt="Arte d" onclick="openModal(this)">
-      <div class="content">
-        <h3>Arte para ícone do Discord - Bot Lobão</h3>
-
-        <!-- Ícone de informação com link -->
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-          <a href="https://discord.gg/clube-meia-noite-1186063021051748352" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-        </div>
-
-        <p>Estilo de desenho furry leve e simplificado, perfeito para criar ícones únicos e carismáticos APENAS para BOTS no Discord.</p>
-      </div>
-    </div>
-
-
-    <div class="art-card">
-      <img src="./imagens/bot_lobao_lobisomem.jpg" alt="Arte f" onclick="openModal(this)">
-      <div class="content">
-        <h3>Arte para ícone do Discord - Bot Lobão</h3>
-
-        <!-- Ícone de informação com link -->
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <i class="fa-solid fa-circle-info" style="color: #ccc;"></i>
-          <a href="https://discord.gg/clube-meia-noite-1186063021051748352" target="_blank" style="color: #aad; text-decoration: underline;">Mais informações</a>
-        </div>
-
-        <p>Estilo de desenho furry leve e simplificado, perfeito para criar ícones únicos e carismáticos APENAS para BOTS no Discord.</p>
-      </div>
-    </div>
-
-  </section>
-
-<section class="contact">
-
-<div class="container-comissoes">
-  <h2 class="neon-subtitle">Transforme Suas Ideias em Arte! Solicite um Orçamento abaixo!</h2>
-  <p>Para solicitar uma comissão ou tirar dúvidas, me chame em alguma rede social:</p>
-
-  <div class="social-bubbles">
-    <a href="https://wa.me/5586998200564" target="_blank" class="social-link whatsapp">
-      <i class="fab fa-whatsapp"></i> Meu WhatsApp
-    </a>
-    <a href="https://instagram.com/dayanee_art" target="_blank" class="social-link instagram">
-      <i class="fab fa-instagram"></i> Meu Instagram
-    </a>
-    <a href="https://discord.com/users/863921132586270720" target="_blank" class="social-link discord">
-      <i class="fab fa-discord"></i> Meu Discord
-    </a>
-  </div>
+<main id="top">
+<section class="hero"><div class="wrap">
+<span class="badge glass rv"><i></i>Comissões Abertas • Entrega Rápida</span>
+<h1 class="grad rv" style="--dl:.1s" data-artist>Dayanee Art</h1>
+<p class="rv" style="--dl:.2s">Transformo suas ideias em artes no estilo anime</p>
+<div class="cta rv" style="--dl:.3s"><a href="#galeria" class="btn sec">Ver Portfólio</a><a href="#precos" class="btn pri">Encomendar Agora</a></div>
 </div>
-
-
-
+<div class="stack" aria-hidden="true"><img src="imagens/chibi.jpeg" alt=""><img src="imagens/fada.jpg" alt=""><img src="imagens/miku_br.jpeg" alt=""></div>
 </section>
 
-  <div class="modal" id="imageModal">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
+<section id="galeria"><div class="wrap">
+<div class="head c rv"><h2>Cada traço conta uma <span class="grad">história</span></h2><p class="sub">Personagens originais, OCs, fanarts e retratos. Passe o mouse, clique e veja os detalhes de perto.</p></div>
+<div class="filters rv" id="fl" role="tablist"><button class="fl on" data-f="all">Todas</button><button class="fl" data-f="Anime">Anime</button><button class="fl" data-f="Semi Realista">Semi Realista</button><button class="fl" data-f="Chibi">Chibi</button></div>
+<div class="mas" id="mas"></div>
+</div></section>
 
-    <!-- Adicione a classe `modal-content` no <img> -->
-    <img id="modalImg" class="modal-content" src="" alt="Imagem Ampliada">
+<section id="precos"><div class="wrap">
+<div class="head c rv"><h2>Escolha seu <span class="grad">estilo</span></h2><p class="sub">Valores claros, sem surpresa. Escolha o enquadramento, adicione extras e receba sua arte finalizada em alta resolução.</p></div>
+<div class="pg" id="pg"></div>
+</div></section>
 
-    <div class="controls">
-      <button onclick="zoom(-0.1)">-</button>
-      <button onclick="zoom(0.1)">+</button>
-    </div>
-  </div>
+<section id="processo"><div class="wrap">
+<div class="head c rv"><h2>Do pedido à arte em <span class="grad">4 passos</span></h2><p class="sub">Um processo simples, com você acompanhando cada etapa.</p></div>
+<div class="tl">
+<div class="st rv"><div class="ic"><svg class="i"><use href="#chat"/></svg></div><h3>Chame no contato</h3><p>Mande sua ideia, referências e o estilo escolhido pelo WhatsApp, Discord ou Instagram.</p></div>
+<div class="st rv" style="--dl:.1s"><div class="ic"><svg class="i"><use href="#gift"/></svg></div><h3>Orçamento e PIX</h3><p>Você recebe o valor final e confirma o pedido com o pagamento via PIX.</p></div>
+<div class="st rv" style="--dl:.2s"><div class="ic"><svg class="i"><use href="#pen"/></svg></div><h3>Esboço e aprovação</h3><p>Eu envio o esboço para você aprovar antes de partir para a finalização.</p></div>
+<div class="st rv" style="--dl:.3s"><div class="ic"><svg class="i"><use href="#eye"/></svg></div><h3>Arte entregue</h3><p>Você recebe a arte final em alta resolução, pronta para postar ou imprimir.</p></div>
+</div></div></section>
 
-    <script>
-  let isZoomed = false;
-let offsetY = 0;
-let scale = 1;
+<section id="contato" class="fin"><div class="wrap"><div class="box glass rv">
+<h2>Vamos criar sua arte <span class="grad">lendária?</span></h2>
+<div class="big">
+<a class="wa" id="bw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>WhatsApp</a>
+<a class="dc" id="bd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20 5a17 17 0 0 0-4.200-1.300l-.5 1a15 15 0 0 0-4.600 0l-.5-1A17 17 0 0 0 6 5C3.300 9 2.600 12.900 3 16.700a17 17 0 0 0 5.200 2.600l1.100-1.800-1.700-.8.400-.3a12 12 0 0 0 10 0l.4.300-1.700.8 1.100 1.800a17 17 0 0 0 5.200-2.600c.5-4.400-.8-8.300-2.900-11.700zM9.300 14.400c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2zm5.400 0c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2z"/></svg>Discord</a>
+<a class="ig" id="bi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zM17.500 5.800a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200z"/></svg>Instagram</a>
+</div>
+<p class="note">Resposta em até 2h • Pagamento via PIX</p>
+</div></div></section>
+</main>
+<a href="#contato" class="sticky" id="sb"><svg class="i"><use href="#chat"/></svg>Encomendar agora</a>
+<footer><div class="wrap">© <span id="yr"></span> <span data-artist>Dayanee Art</span>. Todos os direitos reservados. Arte original sob encomenda.</div></footer>
 
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImg');
+<div id="lb" role="dialog" aria-modal="true" aria-label="Visualização da obra">
+<button class="lbc glass" id="lc" aria-label="Fechar">✕</button>
+<button class="nv l glass" id="lp" aria-label="Anterior">‹</button>
+<button class="nv r glass" id="ln" aria-label="Próxima">›</button>
+<div class="lbx glass"><div class="lbi" id="li"><img id="lim" alt=""></div>
+<div class="lbd"><span class="tag" id="lt"></span><h3 id="lh"></h3><p id="lpp"></p><p style="font-size:.82rem">Clique na imagem para ampliar.</p><a class="btn pri" id="lw" target="_blank" rel="noopener">Quero uma arte assim</a></div></div>
+</div>
 
-function openModal(imgElement) {
-  modal.style.display = 'flex';
-  modalImg.src = imgElement.src;
-  resetZoom();
-}
-
-function closeModal() {
-  modal.style.display = 'none';
-  resetZoom();
-}
-
-function resetZoom() {
-  isZoomed = false;
-  scale = 1;
-  offsetY = 0;
-  modalImg.style.transform = 'translate(0px, 0px) scale(1)';
-  modalImg.style.cursor = 'default';
-}
-
-function zoomToggle(e) {
-  if (!isZoomed) {
-    isZoomed = true;
-    scale = 2.5;
-    modalImg.style.cursor = 'zoom-out';
-  } else {
-    resetZoom();
-  }
-  modalImg.style.transform = `translate(0px, ${offsetY}px) scale(${scale})`;
-}
-
-modalImg.addEventListener('click', (e) => {
-  if (e.button === 0) {
-    zoomToggle(e);
-  }
-});
-
-// Movimento apenas vertical com o mouse
-modalImg.addEventListener('mousemove', (e) => {
-  if (!isZoomed) return;
-
-  const bounds = modalImg.getBoundingClientRect();
-  const mouseY = e.clientY - bounds.top;
-  const percentY = mouseY / bounds.height;
-
-  const maxOffset = (modalImg.naturalHeight * scale - bounds.height) / 2;
-  offsetY = (percentY - 0.5) * 2 * maxOffset;
-
-  modalImg.style.transform = `translate(0px, ${offsetY}px) scale(${scale})`;
-});
-
-function zoom(factor) {
-  if (!isZoomed) {
-    isZoomed = true;
-    scale = 1 + factor;
-  } else {
-    scale += factor;
-    if (scale < 1) scale = 1;
-  }
-  modalImg.style.transform = `translate(0px, ${offsetY}px) scale(${scale})`;
-  modalImg.style.cursor = 'zoom-out';
-}
-
-window.zoom = zoom;
-
-    </script>
-  <div class="credit">
-    designed by
-    <a href="https://www.instagram.com/udaniew/" target="_blank" style="color: #aaa; text-decoration: underline;">
-      @daniewz
-    </a>, powered by AI
-  </div>
-
+<script src="./javascript/script2.js" defer></script>
 </body>
-
 </html>
